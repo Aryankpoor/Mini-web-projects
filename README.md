@@ -1,7 +1,5 @@
-# open-source-resources
-A repository where all developers can contribute anything that helps others
 
-## Hacktoberfest 2022
+# Hacktoberfest 2022
 Hacktoberfest is back in 2022 . Repositories which are participating in hacktoberfest require a hacktoberfest-accepted tag added or hacktoberfest in its topic
 People who have their any 4 pull requests merged will have the option of planting a tree in their name or claiming a hacktoberfest special tee along with some 
 Cool laptop stickers. Hacktoberfest 2022 is from 26 September 2022 to 31 October 2022
