@@ -1,4 +1,4 @@
-#Code of conduct
+# Code of conduct
 To contribute to this repo, the following rules should be taken in mind
 
 1. No racism, sexism or any discrimination of such sort.
