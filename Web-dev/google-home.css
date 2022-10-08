@@ -1,0 +1,141 @@
+body {
+  min-height: 100vh;
+}
+* {
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+}
+.nav {
+  position: relative;
+  top: 0;
+  height: 50px;
+  width: calc(100% -40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  font-size: 20px;
+  color: #666;
+}
+.nav img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid #666;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 80px;
+  top: 23px;
+  font-weight: 300;
+  font-size: 20px;
+}
+.nav a {
+  text-decoration: none;
+  padding: 10px 2px;
+  color: #0063e9;
+  margin: 0px 5px;
+}
+.fa-bars {
+  margin: 0px 5px;
+}
+.nav .active {
+  border-bottom: 2.5px solid #0063e9;
+}
+main {
+  width: 100%;
+  margin: 50px 0px 10px;
+}
+h1 {
+  text-align: center;
+  font-size: 4rem;
+  margin: 20px auto 30px;
+  font-weight: 500;
+}
+span {
+  margin: -7px;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.orange {
+  color: #ffdc00;
+}
+.blue {
+  color: #0063e9;
+}
+.input {
+  position: relative;
+  width: 90%;
+  height: 35px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+  border: 0.8px solid #999;
+  border-radius: 20px;
+  color: #777;
+  align-items: center;
+  font-size: 16px;
+}
+input {
+  border: none;
+  height: 92%;
+  width: 85%;
+  overflow: hidden;
+  outline: none;
+  text-align: left;
+}
+.input .fa {
+  margin: 0px 10px;
+}
+.service {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 20px auto;
+}
+.service span {
+  width: 20%;
+  font-size: 10px;
+  text-align: center;
+  color: #777;
+}
+span img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.link {
+  margin: 20px;
+  color: #0063e9;
+  padding: 5px 10px;
+}
+.lang {
+  color: #0063e9;
+  margin: 5px 10px;
+  text-decoration: none;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  background: #f1f1f1;
+  width: 100%;
+  left: 0;
+  padding: 10px 0px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 300;
+}
+h4 {
+  display: inline;
+  margin: 5px 10px;
+  padding: 5px;
+}
+footer .left {
+  text-align: left;
+}
