@@ -25,6 +25,15 @@ Or you can simply create a new branch in main repository itself such as "JOHN DO
 
 Now again follow the same steps above and create a pull request to merge the two branches.
 
+or to simplify
+
+• Fork the repository
+• Clone it to your system
+• Create a separate branch to work on an issue
+• Create a pull request
+
+Once you have made a pull request, wait for it to be approved. There might be some changes that are requested before the PR is merged.
+
 # Git
 If you are using github cli then type on terminal or cmd 'gh repo clone Aryankpoor/open-source-resources'
 Or if you are using git then type 'git clone https://github.com/Aryankpoor/open-source-resources.git'
