@@ -4,8 +4,6 @@ Hacktoberfest is back in 2022 . Repositories which are participating in hacktobe
 People who have their any 4 pull requests merged will have the option of planting a tree in their name or claiming a hacktoberfest special tee along with some 
 Cool laptop stickers. Hacktoberfest 2022 is from 26 September 2022 to 31 October 2022
 
-This repository is hacktoberfest accepted. Which means all valid
-Pull requests that are accepted in this repository count towards your hacktoberfest participation.
 #### This repository is hacktoberfest accepted.
 Contribute anything in different folders :
 1. Web dev
