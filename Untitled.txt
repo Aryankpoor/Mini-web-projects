@@ -1,0 +1,111 @@
+
+1.	Effects of disk cache on application memory allocation
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+int main(int argc, char** argv) {
+ int max = -1;
+ int mb = 0;
+ char* buffer;
+ if(argc > 1)
+ max = atoi(argv[1]);
+ while((buffer=malloc(1024*1024)) != NULL && mb != max) {
+ memset(buffer, 0, 1024*1024);
+ mb++;
+ printf("Allocated %d MB\n", mb);
+ }
+ return 0;
+}
+
+
+
+
+Q1) Peterson’s Algorithm is a classic software-based solution for the critical section
+problem in operating systems. It ensures mutual exclusion between two processes,
+meaning only one process can access a shared resource at a time, thus preventing
+race conditions. Write a C program to create two processes or threads and
+synchronize them using Peterson's algorithm.
+#include <stdio.h>
+#include <pthread.h>
+#include <unistd.h>
+int flag[2] = {0, 0};
+int turn = 0;
+int shared = 0;
+void *process(void *arg) {
+int id = *(int *)arg;
+int other = 1 - id;
+for (int i = 0; i < 5; i++) {
+flag[id] = 1;
+turn = other;
+while (flag[other] && turn == other);
+shared++;
+printf("Thread %d in critical section, shared=%d\n", id, shared);
+flag[id] = 0;
+usleep(100000);
+}
+return NULL;
+}
+int main() {
+pthread_t t1, t2;
+int id1 = 0, id2 = 1;
+pthread_create(&t1, NULL, process, &id1);
+pthread_create(&t2, NULL, process, &id2);
+pthread_join(t1, NULL);
+pthread_join(t2, NULL);
+return 0;
+}
+
+Q2) The Bakery Algorithm ensures fairness by assigning a unique ticket number to
+each process based on a lexicographical order. This ensures that processes are
+served in the order they arrive, which guarantees that all processes will eventually
+enter the critical section. Write a C program to create number of threads and
+synchronize them using Bakery Algorithm.
+#include <stdio.h>
+#include <pthread.h>
+#include <unistd.h>
+#include <stdlib.h>
+#define N 5
+int choosing[N];
+int number[N];
+int shared = 0;
+int max_number() {
+int max = 0;
+for (int i = 0; i < N; i++)
+if (number[i] > max) max = number[i];
+return max;
+}
+int lex_lower(int a, int b, int id, int j) {
+return (a < b) || (a == b && id < j);
+}
+void *process(void *arg) {
+int id = *(int *)arg;
+for (int k = 0; k < 5; k++) {
+choosing[id] = 1;
+number[id] = 1 + max_number();
+choosing[id] = 0;
+for (int j = 0; j < N; j++) {
+while (choosing[j]);
+while (number[j] && !lex_lower(number[id], number[j], id, j));
+}
+shared++;
+printf("Thread %d in critical section, shared=%d\n", id, shared);
+number[id] = 0;
+usleep(100000);
+}
+return NULL;
+}
+int main() {
+pthread_t threads[N];
+int ids[N];
+for (int i = 0; i < N; i++) {
+choosing[i] = 0;
+number[i] = 0;
+ids[i] = i;
+}
+for (int i = 0; i < N; i++)
+pthread_create(&threads[i], NULL, process, &ids[i]);
+for (int i = 0; i < N; i++)
+pthread_join(threads[i], NULL);
+return 0;
+}
